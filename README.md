@@ -18,6 +18,7 @@ Make sure you have Python 3.8+ and `pip` installed.
 
 ```bash
 pip install pytest playwright
+pip install python-a11y-playwright
 ```
 ### 2. Install Playwright browsers
 
