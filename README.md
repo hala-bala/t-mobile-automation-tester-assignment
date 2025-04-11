@@ -1,37 +1,75 @@
 # Repository with automated tests for a tester assignment
+# T-Mobile Automation Testing Project - Environment Setup
+## Project Overview
+This repository contains automated tests for the T-Mobile website ([https://www.t-mobile.pl/](https://www.t-mobile.pl/)). The tests cover common user scenarios including device search and accessibility testing.
+## Technologies Used
+- Python 3.11
+- Pytest 8.3.5
+- Playwright 1.51.0
+- Python-A11y-Playwright 1.0.1
 
-Site tested: [https://www.t-mobile.pl/](https://www.t-mobile.pl/)
+### Docker Support
+The project now supports running tests in Docker containers, ensuring consistent test execution across different environments:
+- Added `Dockerfile` for containerized test execution
+- Added `docker-compose.yml` for easy container management
+- Container runs tests in headless mode with proper browser configurations
 
-## Technologies used
-- Python
-- Pytest
-- Playwright
+### Virtual Environment Setup
+For local development, the project now includes scripts to easily set up and use Python virtual environments:
+- `setup.sh` (Unix/Linux/Mac) and `setup.bat` (Windows) scripts to create and configure virtual environments
+- `run_tests.sh` (Unix/Linux/Mac) and `run_tests.bat` (Windows) scripts to execute tests within the virtual environment
 
-## Test Scenarios
-- As a new retail customer, I want to search for devices like a blue “iPhone 15”
-- As a visitor with accessibility needs, I want to navigate the site via keyboard
-
-## Environment Setup
-
-### 1. Install dependencies
-Make sure you have Python 3.8+ and `pip` installed.
-
-```bash
-pip install pytest playwright
-pip install python-a11y-playwright
+## Getting Started
+### Option 1: Using Docker (Recommended for CI/CD)
+``` bash
+# Build and run tests in Docker
+docker-compose up
 ```
-### 2. Install Playwright browsers
+### Option 2: Using Virtual Environment (Recommended for Development)
+``` bash
+# For Unix/Linux/Mac
+chmod +x setup.sh
+./setup.sh
+./run_tests.sh
 
-```bash
-playwright install
+# For Windows
+setup.bat
+run_tests.bat
 ```
-### 3. Run the tests
+### Manual Installation
+``` bash
+# Create and activate virtual environment
+python -m venv venv
+source venv/bin/activate  # Unix/Linux/Mac
+venv\Scripts\activate.bat  # Windows
 
-```bash
+# Install dependencies
+pip install -r requirements.txt
+
+# Install Playwright browsers
+playwright install chromium
+
+# Run tests
 pytest tests/
 ```
-To run a specific test:
+## Test Scenarios
+- **Device Search Test:** Simulates a customer searching for a blue iPhone 15
+- **Accessibility Test:** Validates website accessibility compliance using Axe
 
-```bash
-pytest tests/test_search_phone.py
+## Project Structure
+``` 
+project/
+├── pages/            # Page object models
+├── tests/            # Test scenarios
+├── reports/          # Test reports directory
+├── requirements.txt  # Python dependencies
+├── Dockerfile        # Container configuration
+├── docker-compose.yml # Docker services setup
+├── setup.sh/bat      # Environment setup scripts
+├── run_tests.sh/bat  # Test execution scripts
+└── README.md         # Project documentation
 ```
+## Notes
+- Test reports are saved to the `reports/` directory
+- IDE configuration files (.idea/) are now ignored in git
+- The project is configured to run in both containerized and local environments

@@ -1,0 +1,4 @@
+pytest==8.3.5
+playwright==1.51.0
+python-a11y-playwright==1.0.1
+pytest-playwright==0.7.0
