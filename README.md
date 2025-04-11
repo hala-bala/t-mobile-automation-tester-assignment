@@ -1,5 +1,4 @@
-# Repository with automated tests for a tester assignment
-# T-Mobile Automation Testing Project - Environment Setup
+# T-Mobile Automation Testing Project
 ## Project Overview
 This repository contains automated tests for the T-Mobile website ([https://www.t-mobile.pl/](https://www.t-mobile.pl/)). The tests cover common user scenarios including device search and accessibility testing.
 ## Technologies Used
@@ -71,5 +70,4 @@ project/
 ```
 ## Notes
 - Test reports are saved to the `reports/` directory
-- IDE configuration files (.idea/) are now ignored in git
 - The project is configured to run in both containerized and local environments
